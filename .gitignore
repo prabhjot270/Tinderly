@@ -23,7 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-src/utils/firebase.js
+
 # Environment variables
 #Ignore all env files in all folders
 **/*.env 

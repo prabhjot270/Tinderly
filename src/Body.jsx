@@ -12,7 +12,7 @@ const Body = () => {
     const dispatch= useDispatch() ;
 
 useEffect(()=>{
- onAuthStateChanged(auth, (user) => {
+ const unsubscribe = onAuthStateChanged(auth, (user) => {
   if (user) {
     //if User is signed in
      const {uid,email,displayName} = user;
@@ -23,7 +23,9 @@ useEffect(()=>{
    dispatch(removeUser()) ;
   }
 });
-
+     return () => {
+      unsubscribe();
+     }
 },[])
 
   return (

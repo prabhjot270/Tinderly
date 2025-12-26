@@ -3,18 +3,19 @@ import React from 'react'
 const Header = () => {
   return (
     <div>
-       <div className="navbar bg-purple-200 shadow-lg h-16">
+       <div className="navbar bg-purple-200 shadow-lg h-16" >
   <div className="flex-1">
-    <a className="btn btn-ghost text-3xl text-pink-400 ">
+    <a className="btn text-3xl text-pink-400 bg-transparent hover:bg-black border-none">
       <img
       src="/images/tinderly_app_icon.jpg"
       alt="Tinderly Icon"
-      className="w-15 h-15 mr-2 rounded-full"
+      className="w-14 h-14 mr-2 rounded-full"
     />
-      Tinderly</a>
+      Tinderly
+      </a>
   </div>
   <div className="flex gap-2 mx-10">
-    <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
+   
     <div className="dropdown dropdown-end ">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">

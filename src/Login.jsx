@@ -1,29 +1,29 @@
 import React from 'react'
-import { useState,useRef } from 'react';
+import { useState,useRef} from 'react';
 import { validateForm } from './utils/validate';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from './utils/firebase';
 import { useNavigate } from 'react-router-dom';
+
 
 const LoginPage = () => {
    
   const navigate= useNavigate();
+ 
   const [isSignIn, setSignIn]=useState(true);
   const [errorMsg , setErrorMsg]=useState(null) ;
   const email=useRef(null);
   const password=useRef(null) ;
   const name=useRef(null) ;
+
+  
   
  const handleSignIn =()=>{
      //Toggle functionality
        setSignIn(!isSignIn);
  }; 
  const handleBtnClick = (e) => {
-  //Validation 
-
-  // validateForm()
-  console.log(email);
-  console.log(password);
+  //Validation Logic
    e.preventDefault();
     const nameValue= isSignIn ? null : name.current.value.trim() ;
 
@@ -39,13 +39,15 @@ const LoginPage = () => {
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
-    navigate('/feed') ;
-    // console.log(user);
+    const displayName = nameValue || "";
+    return updateProfile(user, { displayName }).then(() => {
+      navigate('/feed', { replace: true });
+    });
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    setErrorMsg(errorMessage);
+    setErrorMsg(errorMessage+errorCode);
   });
    }
    else{
@@ -54,8 +56,7 @@ const LoginPage = () => {
       .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
-       navigate('/feed') ;
-       console.log(user);
+       navigate('/feed', { replace: true }) ;
      })
   .catch((error) => {
     const errorCode = error.code;
@@ -77,7 +78,7 @@ const LoginPage = () => {
          {isSignIn ? 'Sign In' : 'Sign up'}
          </h2>
 
-          {!isSignIn && (<input ref={name} type="email" className="input" placeholder="Full Name" /> )}
+          {!isSignIn && (<input ref={name} type="text" className="input" placeholder="Full Name" /> )}
 
          {/* <label className="label text-black">Email</label> */}
          <input ref={email} type="email" className="input mt-4" placeholder="Email" />

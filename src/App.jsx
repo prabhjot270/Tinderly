@@ -1,9 +1,9 @@
 import { BrowserRouter ,Route, Routes} from "react-router-dom"
-import Header from "./Header"
 import Body from "./Body"
 import LoginPage from "./Login"
 import Profile from "./Profile"
 import FeedPage from "./FeedPage"
+import ProtectedRoute from "./ProtectedRoute"
 function App() {
    return (
     <>
@@ -12,9 +12,11 @@ function App() {
      <Routes>
 
         <Route path="/" element={<Body/>}>
+         <Route path="login" element={<LoginPage/>} />
+         <Route element={<ProtectedRoute/>}>
          <Route path="feed" element={<FeedPage/>} />
-          <Route path="login" element={<LoginPage/>} />
-          <Route path="profile" element={<Profile/>} />
+         <Route path="profile" element={<Profile/>} />
+         </Route>
         </Route>
        
      </Routes>
