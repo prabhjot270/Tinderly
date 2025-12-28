@@ -23,7 +23,7 @@ const LoginPage = () => {
        setSignIn(!isSignIn);
  }; 
  const handleBtnClick = (e) => {
-  //Validation Logic
+  //Validation 
    e.preventDefault();
     const nameValue= isSignIn ? null : name.current.value.trim() ;
 
