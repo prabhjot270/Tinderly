@@ -86,7 +86,7 @@ const LoginPage = () => {
          {/* <label className="label mt-2 text-black">Password</label> */}
          <input ref={password} type="password" className="input mt-4" placeholder="Password" />
             <p className='text-red-400'>{errorMsg}</p>
-           <button className="btn btn-neutral mt-4 bg-gradient-to-r from-pink-500 to-red-500" onClick={handleBtnClick}>{isSignIn ? 'Sign In' : 'Sign up'}</button>
+           <button className="btn btn-neutral mt-4 bg-linear-to-r from-pink-500 to-red-500" onClick={handleBtnClick}>{isSignIn ? 'Sign In' : 'Sign up'}</button>
            <p className='text-lg cursor-pointer' onClick={handleSignIn}>{isSignIn ? 'New User? Sign up now': 'Already registered! Sign in now'}</p>
         </fieldset>
             </div>

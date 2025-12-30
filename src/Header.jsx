@@ -12,7 +12,7 @@ const Header = () => {
            navigate("/login",{replace:true})
          })
          .catch((error)=>{
-           console.log(error)
+           alert(error)
          })
      }
   return (
@@ -27,7 +27,7 @@ const Header = () => {
     />
       Tinderly
       </a>
- { !user && (
+
      <>
       <div className="dropdown dropdown-hover">
      <div tabIndex={0} role="button" className="btn bg-transparent hover:bg-black text-lg text-white ml-3.5 rounded-lg border-none">Products</div>
@@ -52,7 +52,7 @@ const Header = () => {
        <button className='btn bg-transparent hover:bg-black  text-lg text-white ml-3.5 rounded-lg border-none'>Download</button>
        <button className='btn bg-transparent hover:bg-black text-lg text-white ml-3.5 rounded-lg border-none'>About Us</button>
     </>
-)}
+
   </div>
   <div className="flex gap-2 mx-10">
    
@@ -61,20 +61,22 @@ const Header = () => {
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
           <img
-            alt="Tailwind CSS Navbar component"
-            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+            alt="Profile Picture"
+            src="/images/user_icon.png" />
         </div>
       </div>
       <ul
         tabIndex="-1"
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li>
-          <button className="justify-between" onClick={()=> navigate("/profile")}>
-            Profile
+          <button className="justify-between hover:text-red-400" onClick={()=> navigate("/profile")}>
+            Profile Settings
           </button>
         </li>
-        <li><a>Settings</a></li>
-        <li><button onClick={handleLogout}>Logout</button></li>
+        <li>
+          <button className="hover:text-red-400" onClick={()=>navigate("/feed")} >Back To Feed</button>
+          </li>
+        <li><button className="hover:text-red-400" onClick={handleLogout}>Logout</button></li>
       </ul>
     </div>)
     }
