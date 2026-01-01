@@ -1,7 +1,7 @@
 const TestimonialsCards = () => {
   return (
     <>
-    <div className="grid gap-6 md:grid-cols-3 max-w-6xl mx-auto ">
+    <div className="grid gap-6 md:grid-cols-3 max-w-6xl mx-auto">
 
       {/* Testimonial 1 */}
       <div className="bg-pink-100 backdrop-blur rounded-2xl p-2 shadow-lg text-center hover:bg-blue-50 will-change-transformtransition-all duration-500 ease-in-out

@@ -10,12 +10,14 @@ import { addUser,removeUser } from './utils/userSlice.js';
 import MarketingCards from './MarketingCards.jsx';
 import TestimonialsCards from './Testimonials.jsx';
 import { useNavigate } from 'react-router-dom';
+
 const Body = () => {
     const dispatch= useDispatch() ;
     const location=useLocation() ;
     const navigate=useNavigate() ;
     const isHome=location.pathname==='/' ;
-    const handleLogin=()=>{
+
+const handleLogin=()=>{
       navigate('/login') ;
     }
 useEffect(()=>{

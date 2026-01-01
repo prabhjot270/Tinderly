@@ -68,12 +68,12 @@ const LoginPage = () => {
 }
   return (
       <div className='relative w-full h-screen z-0 '>
-        <img src='/images/tinderly_bg.png'
+        <img src='/images/bg_main.png'
          alt='background'
          className='absolute inset-0 w-full h-full object-cover z-0'
          />
           <div className='relative z-10 flex items-center justify-center h-full '>
-         <fieldset className="fieldset rounded-box w-xs border p-6 shadow-lg bg-none">
+         <fieldset className="fieldset rounded-box w-xs border  border-black p-6 shadow-lg bg-none backdrop-blur-sm hover:backdrop-blur-none">
          <h2 className="text-3xl font-bold text-center mb-4 btn text-black bg-transparent">
          {isSignIn ? 'Sign In' : 'Sign up'}
          </h2>
